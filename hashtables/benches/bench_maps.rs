@@ -46,7 +46,7 @@ pub fn bench_hashmap<T: SimpleHashtable<Key = u64, Value = u64>>(
 fn bench_maps(c: &mut Criterion) {
     let mut group = c.benchmark_group("Maps");
 
-    for size in [4096, 131072] {
+    for size in [1000, 10000, 100000] {
         let relation = gen_relation(size);
 
         group.bench_with_input(BenchmarkId::new("Chaining", size), &size, |b, i| {
